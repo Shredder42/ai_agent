@@ -1,5 +1,5 @@
 venv/
 .env
-__pycache__/
 lorem.txt
 morelorem.txt
+__pycache__
