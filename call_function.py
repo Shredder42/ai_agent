@@ -37,6 +37,11 @@ def call_function(function_call_part, verbose=False):
     kwargs = function_call_part.args
     kwargs["working_directory"] = WORKING_DIR
 
+    # added this after discussion with Boots
+    # wouldn't run with directory = None as default in get_files_info
+    if function_name == "get_files_info" and kwargs.get("directory") is None:
+        kwargs["directory"] = "."
+
     function_result = function_dict[function_name](**kwargs)
 
     return types.Content(
